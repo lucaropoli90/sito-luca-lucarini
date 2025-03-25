@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 76%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Apple-style typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Apple-style animations */
+.apple-transition {
+  transition: all 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.apple-hover {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.apple-hover:hover {
+  transform: scale(1.02);
+}
+
+/* Apple-style sections */
+.apple-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Apple-style buttons */
+.apple-button {
+  @apply rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium transition-colors;
+  letter-spacing: -0.01em;
+}
+
+.apple-button-secondary {
+  @apply rounded-full bg-secondary text-secondary-foreground px-6 py-3 text-sm font-medium transition-colors;
+  letter-spacing: -0.01em;
+}
+
+/* Apple-style cards */
+.apple-card {
+  @apply bg-card text-card-foreground rounded-2xl overflow-hidden shadow-sm;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.apple-card:hover {
+  @apply shadow-md;
+  transform: translateY(-2px);
+}
+
+/* Skill bar animation */
+@keyframes fillSkill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target-width);
+  }
+}
+
+.animate-skill-fill {
+  animation: fillSkill 1.5s ease-out forwards;
+}
+
+/* Fade in animation for sections */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation delays */
+.delay-1 {
+  animation-delay: 0.1s;
+}
+.delay-2 {
+  animation-delay: 0.2s;
+}
+.delay-3 {
+  animation-delay: 0.3s;
+}
+.delay-4 {
+  animation-delay: 0.4s;
+}
+.delay-5 {
+  animation-delay: 0.5s;
+}
+
+/* Profile image */
+.profile-image {
+  object-fit: contain;
+  background-color: transparent !important;
+}
+
+.profile-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent !important;
+  z-index: -1;
+}
+
+.dark .profile-image,
+.dark .profile-image::before {
+  background-color: transparent !important;
+}
+
